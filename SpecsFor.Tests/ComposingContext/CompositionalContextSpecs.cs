@@ -7,7 +7,7 @@ namespace SpecsFor.Tests.ComposingContext
 {
 	public class CompositionalContextSpecs
 	{
-		public abstract class given_the_default_state : SpecsFor<Widget>, ILikeMagic
+        public abstract class given_the_default_state : SpecsFor<Widget>, ILikeMagic
 		{
 			public List<string> CalledBySpecInit { get; set; }
 			public List<string> CalledByApplyAfterClassUnderTestInitialized { get; set; }
@@ -23,9 +23,15 @@ namespace SpecsFor.Tests.ComposingContext
 			}
 		}
 
-		public class when_running_tests_decorated_with_a_behavior : given_the_default_state
+        public class when_running_tests_decorated_with_a_behavior : given_the_default_state
 		{
-			[Test]
+            [OneTimeSetUp]
+            public override void SetupEachSpec()
+            {
+                base.SetupEachSpec();
+            }
+
+            [Test]
 			public void then_handlers_for_the_interface_are_called()
 			{
 				CalledByDuringGiven.ShouldContain(typeof(ProvideMagicByInterface).Name);
