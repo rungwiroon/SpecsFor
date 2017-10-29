@@ -35,7 +35,7 @@ namespace SpecsFor.Tests.ShouldExtensions
 		[Test]
 		public void two_different_objects_do_not_look_the_same()
 		{
-			Assert.Throws<Exception>(() => SUT.ShouldLookLike(new TestObject()));
+			Assert.Throws<ExpectedObjects.ComparisonException>(() => SUT.ShouldLookLike(new TestObject()));
 		}
 
 		[Test]
@@ -47,7 +47,7 @@ namespace SpecsFor.Tests.ShouldExtensions
 		[Test]
 		public void then_partial_matching_with_an_unequivalenet_object_throws_exception()
 		{
-			Assert.Throws<Exception>(() => SUT.ShouldLookLikePartial(new { ID = 5, Name = "blah" }));
+			Assert.Throws<ExpectedObjects.ComparisonException>(() => SUT.ShouldLookLikePartial(new { ID = 5, Name = "blah" }));
 		}
 	}
 }
