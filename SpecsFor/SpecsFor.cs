@@ -51,6 +51,7 @@ namespace SpecsFor
 	    [UsedImplicitly]
         public MoqAutoMocker<T> Mocker => _engine.Mocker;
 
+        [OneTimeSetUp]
 	    public virtual void SetupEachSpec()
 	    {
 	        _engine.Init();
