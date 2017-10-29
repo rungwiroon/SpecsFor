@@ -87,7 +87,7 @@ namespace SpecsFor.Tests
 		{
 			private IEnumerable<IWidget> _testWidgets;
 
-			protected override void ConfigureContainer(StructureMap.IContainer container)
+			protected override void ConfigureContainer(IContainer container)
 			{
 				base.ConfigureContainer(container);
 
